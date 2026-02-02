@@ -131,10 +131,14 @@
             gap: 30px;
         }
 
+        nav li {
+            position: relative;
+        }
+
         nav a {
             color: white;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 15px;
             padding: 12px 0;
             display: block;
             transition: color 0.3s;
@@ -148,6 +152,107 @@
         nav a.active {
             border-bottom: 2px solid #00d4aa;
         }
+
+        /* Navigation Dropdown/Preview */
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: white;
+            min-width: 400px;
+            max-width: 700px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            padding: 35px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+            z-index: 1000;
+            margin-top: 10px;
+        }
+
+        nav li:nth-child(3) .nav-dropdown {
+            max-width: 1500px;
+            min-width: 1150px;
+            padding: 40px;
+        }
+
+        nav li:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .nav-dropdown::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 8px solid transparent;
+            border-bottom-color: white;
+        }
+
+        .dropdown-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0015d1;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .dropdown-content {
+            color: #666;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .dropdown-content p {
+            margin-bottom: 10px;
+        }
+
+        .dropdown-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #0015d1;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .dropdown-link:hover {
+            color: #00d4aa;
+        }
+
+       /* BRANDS DROPDOWN – FINAL SPACING FIX */
+        .brands-list {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            row-gap: 28px;          /* ⬅️ laki ng pagitan bawat row */
+            column-gap: 36px;      /* pagitan bawat column */
+            margin-top: 28px;
+        }
+
+        /* BRAND ITEM TEXT */
+        .brand-item {
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.4;      /* controlled height */
+            padding: 2px 0;
+            white-space: normal;   /* ⬅️ ALLOW WRAP */
+        }
+
+        /* PARA SA MAHABANG BRAND NAMES */
+        .brand-item {
+            max-width: 100%;
+            word-break: break-word;
+        }
+
 
         /* Main Content */
         .main-content {
@@ -167,7 +272,7 @@
         /* Brands Grid */
         .brands-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 25px;
         }
 
@@ -181,6 +286,8 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            position: relative;
+            cursor: pointer;
         }
 
         .brand-card:hover {
@@ -188,16 +295,61 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         }
 
+        .brand-card::before {
+            content: attr(data-brand-name);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-8px);
+            background: #0015d1;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 100;
+            margin-bottom: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .brand-card::after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-3px);
+            border: 6px solid transparent;
+            border-top-color: #0015d1;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 100;
+        }
+
+        .brand-card:hover::before {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-8px);
+        }
+
+        .brand-card:hover::after {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-3px);
+        }
+
         .brand-logo {
             width: 100%;
-            height: 120px;
+            height: 80px;   /* smaller */
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
             background: #f8f8f8;
             border-radius: 4px;
-            padding: 10px;
+            padding: 8px;
         }
 
         .brand-logo img {
@@ -213,16 +365,15 @@
         }
 
         .brand-name {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: bold;
-            color: #333;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .brand-description {
-            font-size: 13px;
+            font-size: 12px;
             color: #666;
-            line-height: 1.5;
+            line-height: 1.3;
         }
 
         /* Footer */
@@ -254,7 +405,7 @@
         .footer-links a {
             color: white;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 10px;
             transition: color 0.3s;
         }
 
@@ -305,12 +456,21 @@
                 flex-direction: column;
                 text-align: center;
             }
+
+            .brands-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            nav li:nth-child(3) .nav-dropdown {
+                max-width: 100%;
+                min-width: 300px;
+            }
         }
     </style>
 </head>
 <body>
     <?php
-        $company_name = "ANDISION INDUSTRIAL";
+        $company_name = "ANDISON INDUSTRIAL";
     ?>
 
     <!-- Header -->
@@ -335,13 +495,105 @@
                     <span>OUR PRODUCTS</span>
                 </div>
                 <ul>
-                    <li><a href="home.php">Home</a></li>
-                    <li><a href="about.php">About Us</a></li>
-                    <li><a href="brands.php" class="active">Brands</a></li>
-                    <li><a href="industries.php">Industries</a></li>
-                    <li><a href="services.php">Services</a></li>
-                    <li><a href="contact.php">Contact Us</a></li>
-                </ul>
+                    <li>
+                        <a href="home.php">Home</a>
+                        <div class="nav-dropdown">
+                            <div class="dropdown-title">Home</div>
+                            <div class="dropdown-content">
+                                <p>Welcome to ANDISION INDUSTRIAL. We provide innovative industrial solutions and cutting-edge products for your business needs.</p>
+                                <p>Explore our wide range of products, trusted brands, and professional services.</p>
+                                <a href="home.php" class="dropdown-link">Visit Home Page →</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="about.php">About Us</a>
+                        <div class="nav-dropdown">
+                            <div class="dropdown-title">About Us</div>
+                            <div class="dropdown-content">
+                                <p>ANDISION INDUSTRIAL is a leading provider of industrial solutions, specializing in welding equipment, power tools, safety equipment, and more.</p>
+                                <p>With years of experience, we are committed to delivering quality products and exceptional service to our clients.</p>
+                                <a href="about.php" class="dropdown-link">Learn More →</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="brands.php" class="active">Brands</a>
+                        <div class="nav-dropdown">
+                            <div class="dropdown-title">Our Trusted Brands & Partners</div>
+                            <div class="dropdown-content">
+                                <div class="brands-list">
+                                    <div class="brand-item">ACES</div>
+                                    <div class="brand-item">ALFRA</div>
+                                    <div class="brand-item">ANSELL</div>
+                                    <div class="brand-item">AQUASOL</div>
+                                    <div class="brand-item">ARCAIR</div>
+                                    <div class="brand-item">BOSCH</div>
+                                    <div class="brand-item">BW TECHNOLOGIES</div>
+                                    <div class="brand-item">CHIYODA</div>
+                                    <div class="brand-item">COPPUS</div>
+                                    <div class="brand-item">DALO</div>
+                                    <div class="brand-item">DRYROD II</div>
+                                    <div class="brand-item">GARRYSON</div>
+                                    <div class="brand-item">HARD WORKER</div>
+                                    <div class="brand-item">KOBELCO</div>
+                                    <div class="brand-item">MAGNAFLUX</div>
+                                    <div class="brand-item">MAKITA</div>
+                                    <div class="brand-item">METRODE</div>
+                                    <div class="brand-item">MICROGUARD</div>
+                                    <div class="brand-item">MOTOLITE</div>
+                                    <div class="brand-item">PANASONIC CONNECT</div>
+                                    <div class="brand-item">RAE SYSTEMS</div>
+                                    <div class="brand-item">SOYER</div>
+                                    <div class="brand-item">SPILFYTER</div>
+                                    <div class="brand-item">TANAKA</div>
+                                    <div class="brand-item">TEMPILSTICK</div>
+                                    <div class="brand-item">TRUWELD</div>
+                                    <div class="brand-item">UVEX</div>
+                                    <div class="brand-item">WELDAS</div>
+                                    <div class="brand-item">WELDCRAFT</div>
+                                    <div class="brand-item">WEILER</div>
+                                    <div class="brand-item">YUTAKA</div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="industries.php">Industries</a>
+                        <div class="nav-dropdown">
+                            <div class="dropdown-title">Industries We Serve</div>
+                            <div class="dropdown-content">
+                                <p>We serve various industries including manufacturing, construction, automotive, shipbuilding, and more.</p>
+                                <p>Our products and solutions are designed to meet the specific needs of each industry sector.</p>
+                                <a href="industries.php" class="dropdown-link">Explore Industries →</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="services.php">Services</a>
+                        <div class="nav-dropdown">
+                            <div class="dropdown-title">Our Services</div>
+                            <div class="dropdown-content">
+                                <p>We offer comprehensive services including product consultation, technical support, training, and after-sales service.</p>
+                                <p>Our team of experts is ready to assist you with your industrial needs.</p>
+                                <a href="services.php" class="dropdown-link">View Services →</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="contact.php">Contact Us</a>
+                        <div class="nav-dropdown">
+                            <div class="dropdown-title">Get In Touch</div>
+                            <div class="dropdown-content">
+                                <p>We reply in less than 24 hours, Mondays to Saturdays.</p>
+                                <p><strong>Phone:</strong> (+632) 8584-4958 | (+6343) 425-4126 | (+63) 977 803 7398</p>
+                                <p><strong>Email:</strong> ask_us@andisonindustrial.com</p>
+                                <a href="contact.php" class="dropdown-link">Contact Us →</a>
+                            </div>
+                        </div>
+                    </li>
+            </ul>
             </div>
         </nav>
     </header>
@@ -352,7 +604,7 @@
         
         <div class="brands-grid">
             <!-- Row 1 -->
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Panasonic Connect">
                 <div class="brand-logo">
                     <div class="brand-logo-text" style="color: #0066cc; font-size: 16px;">Panasonic</div>
                 </div>
@@ -360,7 +612,7 @@
                 <div class="brand-description">Arc Welding Robot & Machine</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Kobelco">
                 <div class="brand-logo">
                     <div class="brand-logo-text" style="color: #0066cc; font-size: 24px; font-weight: bold;">K</div>
                 </div>
@@ -368,7 +620,7 @@
                 <div class="brand-description">Welding Electrodes & Filler Wires</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Metrode">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Metrode</div>
                 </div>
@@ -376,7 +628,7 @@
                 <div class="brand-description">Welding Electrodes & Filler Wires</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="DryRod. II">
                 <div class="brand-logo">
                     <div class="brand-logo-text">DryRod. II</div>
                 </div>
@@ -385,7 +637,7 @@
             </div>
 
             <!-- Row 2 -->
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Weldcraft">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Weldcraft</div>
                 </div>
@@ -393,7 +645,7 @@
                 <div class="brand-description">Tig Torch & Accessories</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Truweld">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Truweld</div>
                 </div>
@@ -401,7 +653,7 @@
                 <div class="brand-description">Welding Accessories & Consumables</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Arcair">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Arcair</div>
                 </div>
@@ -409,7 +661,7 @@
                 <div class="brand-description">Gouging Torch</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Magnaflux">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Magnaflux</div>
                 </div>
@@ -418,7 +670,7 @@
             </div>
 
             <!-- Row 3 -->
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Tempiletik">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Tempiletik</div>
                 </div>
@@ -426,7 +678,7 @@
                 <div class="brand-description">Temperature Indicating Pens</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Tanaka">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Tanaka</div>
                 </div>
@@ -434,7 +686,7 @@
                 <div class="brand-description">Gas Cutting Equipment</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Chiyoda">
                 <div class="brand-logo">
                     <div class="brand-logo-text" style="font-size: 28px; font-weight: bold;">C</div>
                 </div>
@@ -442,7 +694,7 @@
                 <div class="brand-description">Gas Saving Regulator</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Yutaka">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Yutaka</div>
                 </div>
@@ -451,7 +703,7 @@
             </div>
 
             <!-- Row 4 -->
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Hard Workers">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Hard Workers</div>
                 </div>
@@ -459,15 +711,15 @@
                 <div class="brand-description">MIG Welding Wire</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Soyer">
                 <div class="brand-logo">
-                    <div class="brand-logo-text">Sayer</div>
+                    <div class="brand-logo-text">Soyer</div>
                 </div>
-                <div class="brand-name">Sayer</div>
+                <div class="brand-name">Soyer</div>
                 <div class="brand-description">Stud Welding Machine</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Aquasoll">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Aquasoll</div>
                 </div>
@@ -475,7 +727,7 @@
                 <div class="brand-description">Water Soluble Purge Paper & Tape</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="SK">
                 <div class="brand-logo">
                     <div class="brand-logo-text" style="font-size: 24px; font-weight: bold;">SK</div>
                 </div>
@@ -484,7 +736,7 @@
             </div>
 
             <!-- Row 5 -->
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Coppus">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Coppus</div>
                 </div>
@@ -492,7 +744,7 @@
                 <div class="brand-description">Portable Ventilators</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="GWI Technologies">
                 <div class="brand-logo">
                     <div class="brand-logo-text" style="font-size: 20px; font-weight: bold;">GWI</div>
                 </div>
@@ -500,7 +752,7 @@
                 <div class="brand-description">Portable Gas Detector</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="RAC Systems">
                 <div class="brand-logo">
                     <div class="brand-logo-text" style="font-size: 20px; font-weight: bold;">RAC</div>
                 </div>
@@ -508,7 +760,7 @@
                 <div class="brand-description">Portable Gas Monitors</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Weldas">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Weldas</div>
                 </div>
@@ -517,7 +769,7 @@
             </div>
 
             <!-- Row 6 -->
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Uvex">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Uvex</div>
                 </div>
@@ -525,7 +777,7 @@
                 <div class="brand-description">Personal Protective Equipment</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Aces">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Aces</div>
                 </div>
@@ -533,7 +785,7 @@
                 <div class="brand-description">Personal Protection</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Microgard">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Microgard</div>
                 </div>
@@ -541,16 +793,16 @@
                 <div class="brand-description">Chemical Protective Clothing</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Ansell">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Ansell</div>
                 </div>
                 <div class="brand-name">Ansell</div>
                 <div class="brand-description">Industrial Protection Gloves</div>
-            </div>
+        </div>
 
             <!-- Row 7 -->
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Alfra">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Alfra</div>
                 </div>
@@ -558,32 +810,32 @@
                 <div class="brand-description">Magnet Drilling Machine, Deburring Machine</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Bosch">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Bosch</div>
-                </div>
+                    </div>
                 <div class="brand-name">Bosch</div>
                 <div class="brand-description">High Performance Power Tools</div>
-            </div>
+                    </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Makita">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Makita</div>
                 </div>
                 <div class="brand-name">Makita</div>
                 <div class="brand-description">Power Tools</div>
-            </div>
+                </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Weller">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Weller</div>
-                </div>
+                    </div>
                 <div class="brand-name">Weller</div>
                 <div class="brand-description">Industrial Wire Brushes</div>
-            </div>
+                    </div>
 
             <!-- Row 8 -->
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Garryson">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Garryson</div>
                 </div>
@@ -591,15 +843,15 @@
                 <div class="brand-description">Tungsten Carbide Burrs</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Spillfyter">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Spillfyter</div>
                 </div>
                 <div class="brand-name">Spillfyter</div>
                 <div class="brand-description">Oil Absorbent Pads</div>
-            </div>
+        </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Dala">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Dala</div>
                 </div>
@@ -607,7 +859,7 @@
                 <div class="brand-description">Industrial Paint Marker</div>
             </div>
 
-            <div class="brand-card">
+            <div class="brand-card" data-brand-name="Motolite">
                 <div class="brand-logo">
                     <div class="brand-logo-text">Motolite</div>
                 </div>
@@ -616,6 +868,8 @@
             </div>
         </div>
     </div>
+
+     
 
     <!-- Footer -->
     <footer>
