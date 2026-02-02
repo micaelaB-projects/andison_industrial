@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Industrial Solutions Inc. - Homepage Redesign</title>
+    <title>Our Trusted Brands & Partners - ANDISION INDUSTRIAL</title>
     <style>
         * {
             margin: 0;
@@ -15,335 +15,240 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
+            background: white;
         }
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #0015d1 0%, #0011a0 100%);
+            background: #0015d1;
             color: white;
-            padding: 15px 0;
         }
 
         .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
-            margin-bottom: 15px;
+            padding: 15px 20px;
         }
 
         .logo {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-box {
-            background: white;
-            color: #0015d1;
-            padding: 5px 10px;
-            border-radius: 3px;
-            font-weight: bold;
-        }
-
-        .header-contact {
-            display: flex;
-            gap: 20px;
-            font-size: 13px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            color: white;
         }
 
         .search-bar {
             flex: 1;
-            max-width: 400px;
+            max-width: 500px;
+            margin: 0 30px;
             display: flex;
-            gap: 5px;
+            align-items: center;
+            background: white;
+            border-radius: 4px;
+            padding: 0 10px;
         }
 
         .search-bar input {
             flex: 1;
-            padding: 8px 12px;
+            padding: 10px;
             border: none;
-            border-radius: 3px;
+            outline: none;
+            font-size: 14px;
         }
 
-        .search-btn {
+        .search-icon {
+            color: #666;
+            font-size: 18px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .inquiry-btn {
             background: #00d4aa;
             color: white;
+            padding: 10px 20px;
             border: none;
-            padding: 8px 15px;
-            border-radius: 3px;
-            cursor: pointer;
+            border-radius: 4px;
             font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
         }
 
-        .search-btn:hover {
+        .inquiry-btn:hover {
             background: #00b88a;
+        }
+
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: #00d4aa;
         }
 
         /* Navigation */
         nav {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: #000d8a;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-size: 14px;
+            padding: 12px 0;
+            margin-right: 30px;
+            cursor: pointer;
+        }
+
+        .hamburger {
+            font-size: 20px;
         }
 
         nav ul {
             display: flex;
-            justify-content: flex-start;
             list-style: none;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        nav li {
-            margin-right: 30px;
+            gap: 30px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
             font-size: 14px;
-            padding: 10px 0;
+            padding: 12px 0;
             display: block;
             transition: color 0.3s;
+            position: relative;
         }
 
         nav a:hover {
             color: #00d4aa;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23888888" width="1200" height="600"/></svg>');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 120px 20px;
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        nav a.active {
+            border-bottom: 2px solid #00d4aa;
         }
 
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .cta-button {
-            background: #00d4aa;
-            color: white;
-            padding: 12px 35px;
-            border: none;
-            border-radius: 3px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .cta-button:hover {
-            background: #00b88a;
-        }
-
-        /* Section */
-        .container {
-            max-width: 1200px;
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 60px 20px;
         }
 
-        section {
-            padding: 80px 20px;
-        }
-
-        section h2 {
+        .page-title {
             text-align: center;
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 42px;
+            font-weight: bold;
             color: #333;
-        }
-
-        .section-description {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 50px;
-            color: #666;
-            line-height: 1.8;
-        }
-
-        /* Product Highlights */
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
             margin-bottom: 50px;
         }
 
-        .product-card {
-            background: #f5f5f5;
-            border-radius: 5px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+        /* Brands Grid */
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #888 0%, #666 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 60px;
-            position: relative;
-        }
-
-        .play-btn {
-            width: 60px;
-            height: 60px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .play-btn:hover {
-            background: rgba(0, 0, 0, 0.9);
-        }
-
-        .product-info {
-            padding: 20px;
+        .brand-card {
             background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
-        .product-info h3 {
-            font-size: 16px;
-            margin-bottom: 10px;
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .brand-logo {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            background: #f8f8f8;
+            border-radius: 4px;
+            padding: 10px;
+        }
+
+        .brand-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .brand-logo-text {
+            font-size: 18px;
+            font-weight: bold;
             color: #333;
         }
 
-        .product-info p {
+        .brand-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .brand-description {
             font-size: 13px;
             color: #666;
-            line-height: 1.6;
-        }
-
-        /* Featured Section */
-        .featured-section {
-            background: linear-gradient(135deg, #e0f7f4 0%, #d0f0ec 100%);
-            padding: 50px 30px;
-            border-radius: 8px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .featured-badge {
-            display: inline-block;
-            background: #00d4aa;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 3px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .featured-content h3 {
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .featured-content p {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        .featured-btn {
-            background: #0015d1;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 3px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .featured-btn:hover {
-            background: #0011a0;
-        }
-
-        .featured-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #0066cc 0%, #004499 100%);
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 60px;
+            line-height: 1.5;
         }
 
         /* Footer */
         footer {
             background: #0015d1;
             color: white;
-            padding: 40px 20px;
-            text-align: center;
+            padding: 30px 20px;
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-copyright {
+            font-size: 13px;
         }
 
         .footer-links {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+            gap: 25px;
         }
 
         .footer-links a {
@@ -357,158 +262,371 @@
             color: #00d4aa;
         }
 
-        .footer-copyright {
-            font-size: 12px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 20px;
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .brands-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+            .brands-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .header-top {
-                flex-direction: column;
+                flex-wrap: wrap;
                 gap: 15px;
+            }
+
+            .search-bar {
+                order: 3;
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .brands-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-title {
+                font-size: 32px;
             }
 
             nav ul {
                 flex-wrap: wrap;
+                gap: 15px;
             }
 
-            nav li {
-                margin-right: 20px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .featured-section {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-links {
+            .footer-content {
                 flex-direction: column;
-                gap: 10px;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
     <?php
-        // Set page title
-        $page_title = "Home";
-        $company_name = "ANDISON INDUSTRIAL";
-        
-        // Contact information
-        $phone = "+1(234) 567 8900";
-        $phone2 = "+1(234) 567 8900";
-        $email = "info@andison-industrial.com";
+        $company_name = "ANDISION INDUSTRIAL";
     ?>
 
     <!-- Header -->
     <header>
         <div class="header-top">
-            <div class="logo">
-                <div class="logo-box"><?php echo $company_name; ?></div>
-            </div>
+            <div class="logo"><?php echo $company_name; ?></div>
             <div class="search-bar">
-                <input type="text" placeholder="Search products...">
-                <button class="search-btn">SEARCH</button>
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Search for products">
             </div>
-            <div class="header-contact">
-                <div class="contact-item">
-                    <span>📞</span>
-                    <span><?php echo $phone; ?></span>
-                </div>
-                <div class="contact-item">
-                    <span>📧</span>
-                    <span><?php echo $email; ?></span>
-                </div>
+            <div class="header-right">
+                <button class="inquiry-btn">INQUIRY LIST</button>
+                <a href="#contact" class="contact-link">Contact Us</a>
             </div>
         </div>
 
         <!-- Navigation -->
         <nav>
-            <ul>
-                <li><a href="home.php">Home</a></li>
-                <li><a href="brands.php">Brands</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#industries">Industries</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
+            <div class="nav-container">
+                <div class="menu-toggle">
+                    <span class="hamburger">☰</span>
+                    <span>OUR PRODUCTS</span>
+                </div>
+                <ul>
+                    <li><a href="home.php">Home</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="brands.php" class="active">Brands</a></li>
+                    <li><a href="industries.php">Industries</a></li>
+                    <li><a href="services.php">Services</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Innovating the Future of Industry</h1>
-            <p>Driving progress with cutting-edge industrial solutions and unwavering quality.</p>
-            <button class="cta-button">Explore Our Products</button>
-        </div>
-    </section>
-
-    <!-- Product Highlights & News -->
-    <section id="products">
-        <div class="container">
-            <h2>Product Highlights & News</h2>
-            <p class="section-description">
-                We will still keep the Youtuube embeded video for product highlights. The video contents will be updated once in a while. 
-                Then same as before with News, Events, and Announcements section that can be added.
-            </p>
-
-            <div class="highlights-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="play-btn">▶</div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Revolutionizing Manufacturing Processes</h3>
-                        <p>Discover how our innovative technology is transforming industrial manufacturing.</p>
-                    </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1 class="page-title">Our Trusted Brands & Partners</h1>
+        
+        <div class="brands-grid">
+            <!-- Row 1 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text" style="color: #0066cc; font-size: 16px;">Panasonic</div>
                 </div>
+                <div class="brand-name">Panasonic Connect</div>
+                <div class="brand-description">Arc Welding Robot & Machine</div>
+            </div>
 
-                <div class="product-card">
-                    <div class="product-image" style="background: linear-gradient(135deg, #004499 0%, #003366 100%);">
-                        <div class="play-btn">▶</div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Innovations in Sustainable Industrial Solutions</h3>
-                        <p>Learn about our commitment to eco-friendly and sustainable products.</p>
-                    </div>
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text" style="color: #0066cc; font-size: 24px; font-weight: bold;">K</div>
                 </div>
+                <div class="brand-name">Kobelco</div>
+                <div class="brand-description">Welding Electrodes & Filler Wires</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Metrode</div>
+                </div>
+                <div class="brand-name">Metrode</div>
+                <div class="brand-description">Welding Electrodes & Filler Wires</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">DryRod. II</div>
+                </div>
+                <div class="brand-name">DryRod. II</div>
+                <div class="brand-description">Welding Electrode Ovens</div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Weldcraft</div>
+                </div>
+                <div class="brand-name">Weldcraft</div>
+                <div class="brand-description">Tig Torch & Accessories</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Truweld</div>
+                </div>
+                <div class="brand-name">Truweld</div>
+                <div class="brand-description">Welding Accessories & Consumables</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Arcair</div>
+                </div>
+                <div class="brand-name">Arcair</div>
+                <div class="brand-description">Gouging Torch</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Magnaflux</div>
+                </div>
+                <div class="brand-name">Magnaflux</div>
+                <div class="brand-description">Dye Penetrants & Inspection</div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Tempiletik</div>
+                </div>
+                <div class="brand-name">Tempiletik</div>
+                <div class="brand-description">Temperature Indicating Pens</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Tanaka</div>
+                </div>
+                <div class="brand-name">Tanaka</div>
+                <div class="brand-description">Gas Cutting Equipment</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text" style="font-size: 28px; font-weight: bold;">C</div>
+                </div>
+                <div class="brand-name">Chiyoda</div>
+                <div class="brand-description">Gas Saving Regulator</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Yutaka</div>
+                </div>
+                <div class="brand-name">Yutaka</div>
+                <div class="brand-description">Welding Gun, Torch</div>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Hard Workers</div>
+                </div>
+                <div class="brand-name">Hard Workers</div>
+                <div class="brand-description">MIG Welding Wire</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Sayer</div>
+                </div>
+                <div class="brand-name">Sayer</div>
+                <div class="brand-description">Stud Welding Machine</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Aquasoll</div>
+                </div>
+                <div class="brand-name">Aquasoll</div>
+                <div class="brand-description">Water Soluble Purge Paper & Tape</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text" style="font-size: 24px; font-weight: bold;">SK</div>
+                </div>
+                <div class="brand-name">SK</div>
+                <div class="brand-description">Measuring Gauge</div>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Coppus</div>
+                </div>
+                <div class="brand-name">Coppus</div>
+                <div class="brand-description">Portable Ventilators</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text" style="font-size: 20px; font-weight: bold;">GWI</div>
+                </div>
+                <div class="brand-name">GWI Technologies</div>
+                <div class="brand-description">Portable Gas Detector</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text" style="font-size: 20px; font-weight: bold;">RAC</div>
+                </div>
+                <div class="brand-name">RAC Systems</div>
+                <div class="brand-description">Portable Gas Monitors</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Weldas</div>
+                </div>
+                <div class="brand-name">Weldas</div>
+                <div class="brand-description">Industrial Hand Protection</div>
+            </div>
+
+            <!-- Row 6 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Uvex</div>
+                </div>
+                <div class="brand-name">Uvex</div>
+                <div class="brand-description">Personal Protective Equipment</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Aces</div>
+                </div>
+                <div class="brand-name">Aces</div>
+                <div class="brand-description">Personal Protection</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Microgard</div>
+                </div>
+                <div class="brand-name">Microgard</div>
+                <div class="brand-description">Chemical Protective Clothing</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Ansell</div>
+                </div>
+                <div class="brand-name">Ansell</div>
+                <div class="brand-description">Industrial Protection Gloves</div>
+            </div>
+
+            <!-- Row 7 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Alfra</div>
+                </div>
+                <div class="brand-name">Alfra</div>
+                <div class="brand-description">Magnet Drilling Machine, Deburring Machine</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Bosch</div>
+                </div>
+                <div class="brand-name">Bosch</div>
+                <div class="brand-description">High Performance Power Tools</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Makita</div>
+                </div>
+                <div class="brand-name">Makita</div>
+                <div class="brand-description">Power Tools</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Weller</div>
+                </div>
+                <div class="brand-name">Weller</div>
+                <div class="brand-description">Industrial Wire Brushes</div>
+            </div>
+
+            <!-- Row 8 -->
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Garryson</div>
+                </div>
+                <div class="brand-name">Garryson</div>
+                <div class="brand-description">Tungsten Carbide Burrs</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Spillfyter</div>
+                </div>
+                <div class="brand-name">Spillfyter</div>
+                <div class="brand-description">Oil Absorbent Pads</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Dala</div>
+                </div>
+                <div class="brand-name">Dala</div>
+                <div class="brand-description">Industrial Paint Marker</div>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">
+                    <div class="brand-logo-text">Motolite</div>
+                </div>
+                <div class="brand-name">Motolite</div>
+                <div class="brand-description">Car & Truck Batteries</div>
             </div>
         </div>
-    </section>
-
-    <!-- Featured Product -->
-    <section>
-        <div class="container">
-            <div class="featured-section">
-                <div class="featured-content">
-                    <span class="featured-badge">FEATURED</span>
-                    <h3>New Generation Industrial Drills Launched!</h3>
-                    <p>Discover our latest advancements in drilling technology offering unparalleled precision and durability for all heavy-duty applications. Explore the future of industrial performance.</p>
-                    <button class="featured-btn">Read More</button>
-                </div>
-                <div class="featured-image">
-                    ▶
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
+            <div class="footer-copyright">
+                <p>&copy; 2023 <?php echo $company_name; ?>. All rights reserved.</p>
+            </div>
             <div class="footer-links">
                 <a href="#privacy">Privacy Policy</a>
                 <a href="#terms">Terms of Service</a>
                 <a href="#sitemap">Sitemap</a>
-            </div>
-            <div class="footer-copyright">
-                <p>&copy; 2026 <?php echo $company_name; ?>. All rights reserved.</p>
             </div>
         </div>
     </footer>
