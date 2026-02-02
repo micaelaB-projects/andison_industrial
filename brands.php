@@ -20,67 +20,112 @@
 
           /* Header */
           header {
-        background: linear-gradient(90deg, #2a00d7, #3a00ff);
-        color: white;
-    }
+              background: linear-gradient(135deg, #2b00d9 0%, #2b00b0 100%);
+              color: white;
+              padding: 14px 0;
+          }
 
-    .header-top {
-        display: flex;
-        align-items: center;
-        gap: 25px;
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 16px 24px;
-    }
+          .header-top {
+              display: flex;
+              align-items: center;
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 0 20px;
+              gap: 20px;
+              margin-bottom: 12px;
+          }
 
-    .logo {
-        background: white;
-        color: #2a00d7;
-        font-weight: 800;
-        padding: 10px 18px;
-        border-radius: 6px;
-        font-size: 16px;
-        letter-spacing: 0.5px;
-    }
+          .logo {
+              font-size: 16px;
+              font-weight: 700;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              flex: 0 0 auto;
+          }
+
+          .logo-box {
+              background: transparent;
+              color: #2b00d9;
+              padding: 0;
+              border-radius: 0;
+              font-weight: 800;
+              letter-spacing: 0.6px;
+          }
+
+          .logo-box img {
+              height: 50px;
+              width: auto;
+              display: block;
+          }
 
     /* SEARCH BAR */
     .search-bar {
-        flex: 1;
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: center;
         max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .search-bar .search-field {
+        width: 100%;
         display: flex;
         align-items: center;
-        background: #f3f3f8;
-        border-radius: 30px;
-        padding: 6px 16px;
+        gap: 8px;
+        position: relative;
     }
 
     .search-bar input {
-        background: transparent;
-        border: none;
-        outline: none;
-        flex: 1;
-        font-size: 14px;
+        width: 100%;
+        height: 40px;
+        padding: 10px 16px 10px 40px;
+        border: 2px solid rgba(255,255,255,0.3);
+        border-radius: 6px;
+        font-size: 15px;
+        background: rgba(255,255,255,0.95);
+        color: #333;
+    }
+
+    .search-bar input::placeholder {
+        color: #999;
+    }
+
+    .search-bar .search-field::before {
+        content: '🔍';
+        position: absolute;
+        left: 12px;
+        font-size: 16px;
+        pointer-events: none;
+        color: #666;
     }
 
     .search-icon {
-        font-size: 16px;
-        color: #666;
+        display: none;
     }
 
     /* RIGHT ACTIONS */
     .header-right {
         display: flex;
         align-items: center;
-        gap: 18px;
+        gap: 12px;
+        margin-left: auto;
     }
 
     .inquiry-btn {
-        background: #00e3a5;
-        color: #003b2a;
-        font-weight: 700;
-        border-radius: 24px;
-        padding: 10px 22px;
+        background: #00d894;
+        color: #002b2b;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 999px;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
         font-size: 13px;
+    }
+
+    .inquiry-btn:hover {
+        filter: brightness(0.95);
     }
 
     .header-contact {
@@ -223,10 +268,11 @@
               position: relative;
               background: rgba(255, 255, 255, 0.06);
               backdrop-filter: blur(10px);
+              z-index: 100;
           }
 
           .nav-container {
-              max-width: 1400px;
+              max-width: 1200px;
               margin: 0 auto;
               padding: 0 20px;
               display: flex;
@@ -234,7 +280,7 @@
               min-height: 52px;
               gap: 18px;
               justify-content: flex-start;
-              padding-left: 200px; /* space for the left Browse toggle */
+              padding-left: 160px; /* space for the left Browse toggle */
               position: relative;
           }
 
@@ -258,6 +304,10 @@
               padding: 8px 14px;
               cursor: pointer;
               font-size: 15px;
+          }
+
+          .menu-toggle:hover {
+              color: #00d4aa;
           }
 
           /* Browse Products Dropdown */
@@ -352,17 +402,26 @@
               visibility: hidden;
               pointer-events: none;
               transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-              z-index: 1000;
+              z-index: 10000;
               margin-top: 10px;
           }
 
           nav li:nth-child(3) .nav-dropdown {
-              max-width: 1500px;
-              min-width: 1150px;
-              padding: 40px;
+              max-width: 1200px;
+              min-width: 1200px;
+              padding: 30px;
+              left: 50%;
+              transform: translateX(-50%) translateY(10px);
           }
 
           nav li:hover .nav-dropdown {
+              opacity: 1;
+              visibility: visible;
+              pointer-events: auto;
+              transform: translateX(-50%) translateY(0);
+          }
+
+          nav li:nth-child(3):hover .nav-dropdown {
               opacity: 1;
               visibility: visible;
               pointer-events: auto;
@@ -380,12 +439,13 @@
           }
 
           .dropdown-title {
-              font-size: 24px;
+              font-size: 20px;
               font-weight: bold;
-              color: #0015d1;
-              margin-bottom: 20px;
+              color: #333;
+              margin-bottom: 25px;
               padding-bottom: 15px;
               border-bottom: 2px solid #f0f0f0;
+              text-align: center;
           }
 
           .dropdown-content {
@@ -412,39 +472,47 @@
               color: #00d4aa;
           }
 
-        /* BRANDS DROPDOWN – FINAL SPACING FIX */
+        /* BRANDS DROPDOWN – GRID LAYOUT */
           .brands-list {
               display: grid;
-              grid-template-columns: repeat(6, 1fr);
-              row-gap: 12px;        
-              column-gap: 30px;      /* pagitan bawat column */
-              margin-top: 28px;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 20px;
+              margin-top: 20px;
           }
 
-          /* BRAND ITEM TEXT */
+          /* BRAND ITEM CARD */
           .brand-item {
-              font-size: 14px;
-              font-weight: 400;
-              line-height: 1.6;      /* controlled height */
-              padding: 6px 8px;
-              white-space: normal;   /* ⬅️ ALLOW WRAP */
-              border-radius: 4px;
-              transition: background 0.2s ease;
+              font-size: 13px;
+              font-weight: 500;
+              padding: 20px 15px;
+              text-align: center;
+              border-radius: 6px;
+              transition: all 0.3s ease;
               cursor: pointer;
-              color: #666;
-              max-width: 100%;
+              color: #333;
+              background: #f5f5f5;
+              border: 1px solid #e0e0e0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              min-height: 80px;
+              white-space: normal;
               word-break: break-word;
+              box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
           }
 
           .brand-item:hover {
-              background: #e0f0f5;
-              color: #333;
+              background: #fff;
+              color: #0015d1;
+              border-color: #0015d1;
+              box-shadow: 0 4px 12px rgba(0, 21, 209, 0.15);
+              transform: translateY(-2px);
           }
 
 
           /* Main Content */
           .main-content {
-              max-width: 1400px;
+              max-width: 1200px;
               margin: 0 auto;
               padding: 60px 20px;
           }
@@ -843,11 +911,16 @@
       <!-- Header -->
       <header>
           <div class="header-top">
-              <div class="logo"><?php echo $company_name; ?></div>
-              <div class="search-bar">
-                  <span class="search-icon">🔍</span>
-                  <input type="text" placeholder="Search for products">
+              <div class="logo">
+                  <div class="logo-box"><img src="assets/image-removebg-preview.png" alt="Andison Industrial" /></div>
               </div>
+
+              <div class="search-bar">
+                  <div class="search-field">
+                      <input type="text" placeholder="Search for products">
+                  </div>
+              </div>
+
               <div class="header-right">
                   <button class="inquiry-btn">INQUIRY LIST</button>
                   <div class="header-contact">
@@ -870,83 +943,16 @@
           <!-- Navigation -->
           <nav>
               <div class="nav-container">
-                  <div class="browse-products-wrapper">
-                      <button class="menu-toggle" id="browseToggle">
-                          <span class="hamburger">☰</span>
-                          <span>BROWSE PRODUCTS</span>
-                      </button>
-                      <div class="browse-products-dropdown">
-                          <div class="dropdown-title">Our Trusted Brands & Partners</div>
-                          <div class="dropdown-content">
-                              <div class="brands-list">
-                                  <!-- Column 1 -->
-                                  <div class="brand-item">ACES</div>
-                                  <div class="brand-item">CHIYODA</div>
-                                  <div class="brand-item">MAGNAFLUX</div>
-                                  <div class="brand-item">SOYER</div>
-                                  <div class="brand-item">WELDCRAFT</div>
-                                  
-                                  <!-- Column 2 -->
-                                  <div class="brand-item">ALFRA</div>
-                                  <div class="brand-item">COPPUS</div>
-                                  <div class="brand-item">MAKITA</div>
-                                  <div class="brand-item">SPILFYTER</div>
-                                  <div class="brand-item">WEILER</div>
-                                  
-                                  <!-- Column 3 -->
-                                  <div class="brand-item">ANSELL</div>
-                                  <div class="brand-item">DALO</div>
-                                  <div class="brand-item">METRODE</div>
-                                  <div class="brand-item">TANAKA</div>
-                                  <div class="brand-item">YUTAKA</div>
-                                  
-                                  <!-- Column 4 -->
-                                  <div class="brand-item">AQUASOL</div>
-                                  <div class="brand-item">DRYROD II</div>
-                                  <div class="brand-item">MICROGUARD</div>
-                                  <div class="brand-item">TEMPILSTICK</div>
-                                  <div class="brand-item">TRUWELD</div>
-                                  
-                                  <!-- Column 5 -->
-                                  <div class="brand-item">ARCAIR</div>
-                                  <div class="brand-item">GARRYSON</div>
-                                  <div class="brand-item">MOTOLITE</div>
-                                  <div class="brand-item">UVEX</div>
-                                  <div class="brand-item">WELDAS</div>
-                                  
-                                  <!-- Column 6 -->
-                                  <div class="brand-item">BOSCH</div>
-                                  <div class="brand-item">HARD WORKER</div>
-                                  <div class="brand-item">PANASONIC CONNECT</div>
-                                  <div class="brand-item">BW TECHNOLOGIES</div>
-                                  <div class="brand-item">KOBELCO</div>
-                                  <div class="brand-item">RAE SYSTEMS</div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+                  <button class="menu-toggle" id="browseToggle">
+                      <span class="hamburger">☰</span>
+                      <span>BROWSE PRODUCTS</span>
+                  </button>
                   <ul>
                       <li>
                           <a href="home.php">Home</a>
-                          <div class="nav-dropdown">
-                              <div class="dropdown-title">Home</div>
-                              <div class="dropdown-content">
-                                  <p>Welcome to ANDISION INDUSTRIAL. We provide innovative industrial solutions and cutting-edge products for your business needs.</p>
-                                  <p>Explore our wide range of products, trusted brands, and professional services.</p>
-                                  <a href="home.php" class="dropdown-link">Visit Home Page →</a>
-                              </div>
-                          </div>
                       </li>
                       <li>
                           <a href="about.php">About Us</a>
-                          <div class="nav-dropdown">
-                              <div class="dropdown-title">About Us</div>
-                              <div class="dropdown-content">
-                                  <p>ANDISION INDUSTRIAL is a leading provider of industrial solutions, specializing in welding equipment, power tools, safety equipment, and more.</p>
-                                  <p>With years of experience, we are committed to delivering quality products and exceptional service to our clients.</p>
-                                  <a href="about.php" class="dropdown-link">Learn More →</a>
-                              </div>
-                          </div>
                       </li>
                       <li>
                           <a href="brands.php" class="active">Brands</a>
@@ -986,45 +992,18 @@
                                       <div class="brand-item">WEILER</div>
                                       <div class="brand-item">YUTAKA</div>
                                   </div>
-                                
                               </div>
-                          </div>
-                      </li>
+                          </li>
                       <li>
                           <a href="industries.php">Industries</a>
-                          <div class="nav-dropdown">
-                              <div class="dropdown-title">Industries We Serve</div>
-                              <div class="dropdown-content">
-                                  <p>We serve various industries including manufacturing, construction, automotive, shipbuilding, and more.</p>
-                                  <p>Our products and solutions are designed to meet the specific needs of each industry sector.</p>
-                                  <a href="industries.php" class="dropdown-link">Explore Industries →</a>
-                              </div>
-                          </div>
                       </li>
                       <li>
                           <a href="services.php">Services</a>
-                          <div class="nav-dropdown">
-                              <div class="dropdown-title">Our Services</div>
-                              <div class="dropdown-content">
-                                  <p>We offer comprehensive services including product consultation, technical support, training, and after-sales service.</p>
-                                  <p>Our team of experts is ready to assist you with your industrial needs.</p>
-                                  <a href="services.php" class="dropdown-link">View Services →</a>
-                              </div>
-                          </div>
                       </li>
                       <li>
                           <a href="contact.php">Contact Us</a>
-                          <div class="nav-dropdown">
-                              <div class="dropdown-title">Get In Touch</div>
-                              <div class="dropdown-content">
-                                  <p>We reply in less than 24 hours, Mondays to Saturdays.</p>
-                                  <p><strong>Phone:</strong> (+632) 8584-4958 | (+6343) 425-4126 | (+63) 977 803 7398</p>
-                                  <p><strong>Email:</strong> ask_us@andisonindustrial.com</p>
-                                  <a href="contact.php" class="dropdown-link">Contact Us →</a>
-                              </div>
-                          </div>
                       </li>
-              </ul>
+                  </ul>
               </div>
           </nav>
       </header>
