@@ -44,12 +44,18 @@
         }
 
         .logo-box {
-            background: white;
+            background: transparent;
             color: #2b00d9;
-            padding: 8px 12px;
-            border-radius: 6px;
+            padding: 0;
+            border-radius: 0;
             font-weight: 800;
             letter-spacing: 0.6px;
+        }
+
+        .logo-box img {
+            height: 50px;
+            width: auto;
+            display: block;
         }
 
         .header-contact {
@@ -298,8 +304,8 @@
             background-position: center;
             color: white;
             text-align: center;
-            padding: 120px 20px;
-            min-height: 400px;
+            padding: 60px 20px;
+            min-height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -327,21 +333,62 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            overflow: hidden;
         }
 
+        /* blurred full-bleed background taken from the slide's background-image */
         .hero-slide::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            inset: 0;
+            background-image: inherit;
+            background-size: cover;
+            background-position: center;
+            filter: blur(6px) brightness(0.85);
+            transform: scale(1.06);
+            z-index: 0;
+        }
+
+        /* subtle dark overlay above the blur to improve text contrast */
+        .hero-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.18);
             z-index: 1;
         }
 
         .hero-slide.active {
             opacity: 1;
+        }
+
+        /* centered clear image card on top of the blurred background */
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .hero-content h1,
+        .hero-content p,
+        .hero-content .cta-button {
+            display: none;
+        }
+
+        .hero-thumb {
+            width: 560px;
+            max-width: 86%;
+            height: 220px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 6px;
+            box-shadow: 0 18px 40px rgba(2,6,23,0.45);
+            overflow: hidden;
         }
 
         .hero-content {
@@ -719,7 +766,7 @@
     <header>
         <div class="header-top">
             <div class="logo">
-                <div class="logo-box"><?php echo $company_name; ?></div>
+                <div class="logo-box"><img src="assets/image-removebg-preview.png" alt="Andison Industrial" /></div>
             </div>
 
             <div class="search-bar">
@@ -784,32 +831,24 @@
 
     <!-- Hero Section -->
     <section class="hero" id="heroSlider">
-        <div class="hero-slide active" style="background-image: url('images/tawers-welding-robot.jpg');">
+        <div class="hero-slide active" style="background-image: url('assets/photo_2026-02-02_14-29-26.jpg');">
             <div class="hero-content">
-                <h1>The Arc Welding Robot System TAWERS</h1>
-                <p>Active Wire Feed Process - Achieving High-Speed Welding and Ultra Low Spatter</p>
-                <button class="cta-button">Learn More</button>
+                <div class="hero-thumb" style="background-image: url('assets/photo_2026-02-02_14-29-26.jpg');"></div>
             </div>
         </div>
-        <div class="hero-slide" style="background-image: url('images/panasonic-connect.jpg');">
+        <div class="hero-slide" style="background-image: url('assets/photo_2026-02-02_14-29-26 (2).jpg');">
             <div class="hero-content">
-                <h1>Panasonic CONNECT</h1>
-                <p>Advanced welding solutions and equipment for industrial manufacturing</p>
-                <button class="cta-button">Explore Products</button>
+                <div class="hero-thumb" style="background-image: url('assets/photo_2026-02-02_14-29-26 (2).jpg');"></div>
             </div>
         </div>
-        <div class="hero-slide" style="background-image: url('images/kobelco-consumables.jpg');">
+        <div class="hero-slide" style="background-image: url('assets/photo_2026-02-02_14-29-26 (3).jpg');">
             <div class="hero-content">
-                <h1>KOBELCO Welding Consumables</h1>
-                <p>World-class global manufacturer meeting demanding welding needs worldwide</p>
-                <button class="cta-button">Discover Range</button>
+                <div class="hero-thumb" style="background-image: url('assets/photo_2026-02-02_14-29-26 (3).jpg');"></div>
             </div>
         </div>
-        <div class="hero-slide" style="background-image: url('images/honeywell-detectors.jpg');">
+        <div class="hero-slide" style="background-image: url('assets/photo_2026-02-02_14-29-26 (4).jpg');">
             <div class="hero-content">
-                <h1>Honeywell Portable Gas Detectors</h1>
-                <p>From Oil & Gas to Manufacturing - Safety equipment for every application</p>
-                <button class="cta-button">View Products</button>
+                <div class="hero-thumb" style="background-image: url('assets/photo_2026-02-02_14-29-26 (4).jpg');"></div>
             </div>
         </div>
         <div class="hero-indicators">
